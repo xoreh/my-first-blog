@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Made by Jordy Jordan</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Intro to HTML (Jordy Jordan)</a></h1>
-        </header>
-        % for post in posts %}
-        <article>
-            <time>published: {{ post.published_date }}</time>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <article class="post">
+            <time class="date">
+                {{ post.published_date }}
+            </time>
             <h2><a href="">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
-        {% endfor %}
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
